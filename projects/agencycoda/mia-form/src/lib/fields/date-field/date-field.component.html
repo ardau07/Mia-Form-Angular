@@ -1,0 +1,7 @@
+<mat-form-field *ngIf="input" class="{{ field.classes }}" (click)="picker.open()" [appearance]="getAppearance()">
+    <mat-label *ngIf="field.label"> {{ field.label }} </mat-label>
+    <input matInput [matDatepicker]="picker" [formControl]="input" [placeholder]="field.placeholder ? field.placeholder : ''" [disabled]="field.isDisabled ? field.isDisabled : false">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+    <mat-hint *ngIf="field.caption" [align]="'end'"> {{ field.caption }} </mat-hint>
+</mat-form-field>

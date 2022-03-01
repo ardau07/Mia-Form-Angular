@@ -1,0 +1,15 @@
+<h5 *ngIf="data.item.id == 0 && isShowHeader" mat-dialog-title class="mat-dialog-title">{{ data.titleNew }}</h5>
+<h5 *ngIf="data.item.id > 0 && isShowHeader" mat-dialog-title class="mat-dialog-title">{{ data.titleEdit }}</h5>
+
+<mat-dialog-content class="form-modal">
+  <div class="content">
+    <mia-form #miaForm [config]="data.config" [item]="data.item"></mia-form>
+  </div>
+</mat-dialog-content>
+
+<div *ngIf="isShowButtons" class="mat-dialog-actions" mat-dialog-actions>
+  <button *ngIf="!isSending" mat-stroked-button mat-dialog-close>Close</button>
+  <button *ngIf="!isSending" mat-raised-button color="primary" (click)="onClickSave()">Save</button>
+</div>
+
+<!-- Example Request -->

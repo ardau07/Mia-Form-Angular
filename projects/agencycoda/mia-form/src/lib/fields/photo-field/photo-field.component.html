@@ -1,0 +1,14 @@
+<div class="avatar">
+    <input type="hidden" [formControl]="input" />
+
+    <input #inputFile type="file" accept="image/png, image/jpeg" style="display: none;" miaFileGoogle (fileUploaded)="onUploadFile($event)" (startUpload)="isUploading = true" (endUpload)="isUploading = false">
+
+    <mat-spinner *ngIf="isUploading" [diameter]="50"></mat-spinner>
+    <button *ngIf="input.value == '' && !isUploading" mat-stroked-button class="container-image btn-upload-image" (click)="inputFile.click()">
+        <mat-icon>collections</mat-icon> <br> Upload photo here
+    </button>
+    <div *ngIf="input.value != '' && !isUploading" class="container-image" (click)="inputFile.click()">
+        <img [src]="input.value" onerror="this.src='https://storage.googleapis.com/vuln-files/709_20213515_user-avatar-empty.png';" />
+    </div>
+    <button *ngIf="input.value != '' && !isUploading" mat-icon-button matTooltip="Delete Image" class="btn-delete" color="warn" (click)="input.setValue('')"><mat-icon>delete</mat-icon></button>
+</div>

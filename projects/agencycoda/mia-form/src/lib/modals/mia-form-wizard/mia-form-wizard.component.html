@@ -1,0 +1,29 @@
+<div class="settings-page-layout-dialog">
+    <mat-dialog-content>
+  
+      <div class="layout">
+        <div class="navigation">
+          <div *ngFor="let tab of data.tabs; let index = index" class="link" [ngClass]="{'link-active': sectionSelectedIndex == index}" (click)="onClickTab(tab, index)">{{ tab.title }}</div>
+        </div>
+  
+        <div class="content">
+            <ng-container *ngFor="let tab of data.tabs; let index = index">
+                <div *ngIf="sectionSelectedIndex == index" class="settings-page-general">
+                    <h2>{{ tab.title }}</h2>
+                    <mia-form #miaForm [config]="configForm!" [item]="data.item"></mia-form>
+                  </div>
+            </ng-container>
+
+            <div *ngIf="errorMessage != ''">{{ errorMessage }}</div>
+        </div>
+      </div>
+  
+    </mat-dialog-content>
+    
+    <div class="mat-dialog-actions" mat-dialog-actions>
+        <button *ngIf="!isSending" mat-stroked-button matDialogClose>Cancel</button>
+        <button *ngIf="!isSending && (sectionSelectedIndex == data.tabs.length-1 || data.item.id > 0)" mat-raised-button color="primary" (click)="onClickSave()">Save</button>
+        <button *ngIf="!isSending && (sectionSelectedIndex < data.tabs.length-1 && data.item.id == 0)" mat-raised-button color="primary" (click)="onClickContinue()">Continue</button>
+    </div>
+  </div>
+  

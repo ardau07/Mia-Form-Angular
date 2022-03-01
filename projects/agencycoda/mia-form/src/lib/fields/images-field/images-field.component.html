@@ -1,0 +1,12 @@
+<div class="mia-images">
+    <mat-label *ngIf="field.label"> {{ field.label }} {{ input.value.length }} / {{ getLimit() }} </mat-label>
+    <div class="container-images">
+        <div *ngFor="let index of quantityItems" class="image-box">
+            <img *ngIf="getPhotoByIndex(index) == undefined" (click)="inputFile.click()" />
+            <img *ngIf="getPhotoByIndex(index) != undefined" [src]="getPhotoByIndex(index).url" (click)="onClickRemove(index)" />
+        </div>
+    </div>
+    <mat-hint *ngIf="field.caption" [align]="'end'"> {{ field.caption }} </mat-hint>
+
+    <input #inputFile type="file" accept="image/png, image/jpeg" style="display: none;" miaFileGoogle (fileUploaded)="onUploadFile($event)" (startUpload)="isUploading = true" (endUpload)="isUploading = false">
+</div>

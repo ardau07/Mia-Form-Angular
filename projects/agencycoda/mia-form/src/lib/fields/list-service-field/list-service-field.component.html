@@ -1,0 +1,30 @@
+<div class="add-list-field {{ field.classes }}">
+  <div class="header">
+      <mat-label *ngIf="field.label"> {{ field.label }} </mat-label>
+  </div>
+
+  <div *ngIf="inputList" class="list-items">
+      <div class="item" *ngFor="let itList of inputList.value; let i = index">
+
+          {{ getFieldValueByKey(itList, field.extra.field_display) }}
+          <button mat-icon-button matSuffix color="warn" matTooltip="Remove" type="button" (click)="onClickRemove(i)"><mat-icon>close</mat-icon></button>
+
+      </div>
+  </div>
+
+  <div class="row">
+    <mat-form-field *ngIf="input" [appearance]="getAppearance()">
+        <mat-label *ngIf="field.label"> {{ field.label }} </mat-label>
+        <input matInput type="text" [formControl]="input" [placeholder]="field.placeholder ? field.placeholder : ''" [disabled]="field.isDisabled ? field.isDisabled : false" [matAutocomplete]="auto">
+        <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete" [displayWith]="displayFn.bind(this)">
+          <mat-option *ngFor="let item of filteredOptions | async" [value]="item">
+            {{ displayFn(item) }}
+          </mat-option>
+        </mat-autocomplete>
+        <mat-hint *ngIf="field.caption" [align]="'end'"> {{ field.caption }} </mat-hint>
+        <button matSuffix mat-flat-button color="primary" type="button" class="btn-add" (click)="onClickAdd()">+ ADD</button>
+    </mat-form-field>
+
+    <!-- <button mat-stroked-button color="primary" class="btn-add-item" type="button" (click)="onClickAdd()">+ ADD</button> -->
+  </div>
+</div>

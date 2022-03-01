@@ -1,0 +1,14 @@
+<input #inputFile type="file" accept="image/png, image/jpeg" style="display: none;" miaFileGoogle (fileUploaded)="onUploadFile($event)" (startUpload)="isUploading = true" (endUpload)="isUploading = false">
+<input type="hidden" [formControl]="input" />
+<button *ngIf="this.field.extra == undefined || (field.extra.saveObj == undefined || field.extra.saveObj == false)" type="button" mat-button class="header-image" (click)="inputFile.click()">
+    <img *ngIf="input.value != '' && !isUploading" [src]="input.value" class="cover-image" onerror="this.src='https://storage.googleapis.com/vuln-files/709_20213515_user-avatar-empty.png';" />
+    <img *ngIf="input.value == '' && !isUploading" src="https://storage.googleapis.com/vuln-files/709_20213515_user-avatar-empty.png" alt="Upload Image" class="image-empty" matTooltip="Upload Image" />
+    <mat-spinner *ngIf="isUploading"></mat-spinner>
+    <button *ngIf="input.value != '' && input.value != undefined && !isUploading" type="button" mat-icon-button matTooltip="Remove Image" class="btn-remove" color="warn" (click)="input.setValue('')"><mat-icon>delete</mat-icon></button>
+</button>
+<button *ngIf="this.field.extra && field.extra.saveObj" type="button" mat-button class="header-image" (click)="inputFile.click()">
+    <img *ngIf="input.value != undefined && !isUploading" [src]="input.value.url" class="cover-image" onerror="this.src='https://storage.googleapis.com/vuln-files/709_20213515_user-avatar-empty.png';" />
+    <img *ngIf="input.value == undefined && !isUploading" src="https://storage.googleapis.com/vuln-files/709_20213515_user-avatar-empty.png" alt="Upload Image" class="image-empty" matTooltip="Upload Image" />
+    <mat-spinner *ngIf="isUploading"></mat-spinner>
+    <button *ngIf="input.value != undefined && !isUploading" type="button" mat-icon-button matTooltip="Remove Image" class="btn-remove" color="warn" (click)="input.setValue(undefined)"><mat-icon>delete</mat-icon></button>
+</button>

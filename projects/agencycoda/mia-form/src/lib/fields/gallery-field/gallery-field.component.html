@@ -1,0 +1,20 @@
+<div class="gallery-field {{ field.classes }}">
+    <div *ngIf="inputList" class="list-items">
+        <ng-container *ngFor="let itInput of inputList.controls; let i = index">
+
+            <mat-form-field>
+                <input matInput type="text" name="list_string_{{ i }}" [formControl]="getControlByIndex(i)" [placeholder]="field.placeholder ? field.placeholder : ''" [disabled]="field.isDisabled ? field.isDisabled : false">
+                <button mat-icon-button matSuffix color="warn" matTooltip="Remove" type="button" (click)="onClickRemove(i)"><mat-icon>close</mat-icon></button>
+            </mat-form-field>
+
+        </ng-container>
+    </div>
+
+    <div class="header d-flex">
+        <input #inputFile type="file" accept="image/png, image/jpeg" style="display: none;" miaFileGoogle (fileUploaded)="onUploadFile($event)" (startUpload)="isUploading = true" (endUpload)="isUploading = false">
+        <button mat-stroked-button color="primary" class="btn-add-item" type="button" (click)="inputFile.click()">+ ADD an image</button>
+    </div>
+
+    <mat-hint *ngIf="field.caption" [align]="'end'"> {{ field.caption }} </mat-hint>
+
+</div>

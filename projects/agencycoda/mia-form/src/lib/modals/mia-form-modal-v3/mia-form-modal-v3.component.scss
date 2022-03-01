@@ -1,0 +1,73 @@
+.overline{
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 0.9em;
+  }
+  
+  mat-form-field{
+    width: 100%;
+    margin-bottom: 1em;
+  }
+  
+  .btn-delete{
+    margin-top: 1em;
+  }
+  
+
+.settings-page-layout-dialog{
+
+  .layout{
+    display: flex;
+    align-items: flex-start;
+
+    .navigation{
+      background-color: #EFEFEF;
+      height: 100%;
+      width: 320px;
+      min-width: 320px;
+      max-width: 320px;
+      padding: 1.5em;
+      box-sizing: border-box;
+
+      h2{
+        margin-bottom: 2em;
+      }
+
+      .link{
+        font-size: 1.1em;
+        font-weight: 600;
+        color: #696969;
+        margin-bottom: 1em;
+        padding: 0.3em 0;
+        cursor: pointer;
+        &:hover{
+          color: #333333;
+        }
+      }
+
+      .link-active{
+        color: #222222 !important;
+        text-decoration: underline;
+      }
+    }
+
+    .content{
+      overflow-y: auto;
+    }
+  }
+}
+
+.close-save-button-component{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2em;
+  
+    button{
+      opacity: 0.5;
+      &:hover{
+        opacity: 1;
+      }
+    }
+  }
+  

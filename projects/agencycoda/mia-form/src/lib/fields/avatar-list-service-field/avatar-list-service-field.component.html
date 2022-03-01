@@ -1,0 +1,27 @@
+<div class="avatar-list-service {{ field.classes }}">
+  <mat-label *ngIf="field.label"> {{ field.label }} </mat-label>
+
+  <div class="avatar-items-selected">
+      <button *ngFor="let itSel of inputList.value; let index = index" mat-flat-button class="button-avatar-item" (click)="onClickRemove(index)" matTooltip="Remove">
+          <img *ngIf="getAvatar(itSel) != ''" [src]="getAvatar(itSel)" />
+          <span *ngIf="getAvatar(itSel) == ''">{{ getInitials(itSel) }}</span>
+      </button>
+      <button mat-icon-button class="add-button-avatar" [matMenuTriggerFor]="addNewAvatar" matTooltip="Add User">+</button>
+  </div>
+
+
+  <mat-menu #addNewAvatar="matMenu" class="mat-menu-avatar-list-service" [hasBackdrop]="true" [overlapTrigger]="true">
+    <div class="content">
+      <mat-form-field style="padding: 0 1em;" *ngIf="input" (click)="$event.stopPropagation();" (keyup)="applySearch()" appearance="outline">
+          <input matInput type="text" [formControl]="input" [placeholder]="'Search'" />
+          <mat-icon matPrefix>search</mat-icon>
+      </mat-form-field>
+      <div class="items">
+          <button mat-menu-item *ngFor="let item of itemsFiltered" class="item" (click)="onClickAdd(item)"> {{ getFieldValueByKey(item, field.extra.field_display) }} </button>
+          <!-- <div *ngFor="let item of itemsFiltered" class="item" (click)="onClickAdd(item)">
+              {{ getFieldValueByKey(item, field.extra.field_display) }}
+          </div> -->
+      </div>
+    </div>
+  </mat-menu>
+</div>

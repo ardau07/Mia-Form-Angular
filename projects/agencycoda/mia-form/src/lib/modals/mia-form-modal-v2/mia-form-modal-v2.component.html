@@ -1,0 +1,20 @@
+<div class="close-save-button-component">
+    <button mat-button mat-dialog-close>CLOSE</button>
+    <button *ngIf="!isSending" mat-button (click)="onClickSave()">SAVE</button>
+    <mat-progress-spinner *ngIf="isSending" [diameter]="10"></mat-progress-spinner>
+</div>
+  
+<mat-dialog-content>
+    <h2>{{ data.title }}</h2>
+    
+    <div class="form-modal">
+        <div fxLayout="column" fxLayoutGap="16px">
+            <mia-form #miaForm [config]="data.config" [item]="data.item"></mia-form>
+        </div>
+    </div>
+
+    <div *ngIf="errorMessage != ''">{{ errorMessage }}</div>
+</mat-dialog-content>
+      
+      
+    

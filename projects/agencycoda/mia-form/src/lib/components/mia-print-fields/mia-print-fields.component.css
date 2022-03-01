@@ -1,0 +1,6 @@
+mia-string-field, mia-autocomplete-field, mia-autocomplete-service-field, mia-avatar-list-service-field, mia-checkbox-field, 
+mia-chips-and-select-field, mia-date-field, mia-date-range-field, mia-files-field, mia-images-field, mia-list-service-field,
+mia-list-string-field, mia-photo-field, mia-row-field, mia-select-field, mia-select-service-field, mia-string-with-color-field,
+mia-text-field {
+    width: 100%;
+}

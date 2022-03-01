@@ -1,0 +1,8 @@
+<mat-form-field *ngIf="input" class="{{ field.classes }}" [appearance]="getAppearance()">
+    <mat-label *ngIf="field.label"> {{ field.label }} </mat-label>
+    <mat-chip-list #chipList aria-label="Tags" multiple>
+      <mat-chip *ngFor="let tag of input.value" (removed)="remove(tag)"> {{ tag }} </mat-chip>
+      <input placeholder="New tag..." [matChipInputFor]="chipList" (matChipInputTokenEnd)="addTagFromInput($event)">
+    </mat-chip-list>
+    <mat-hint *ngIf="field.caption" [align]="'end'"> {{ field.caption }} </mat-hint>
+  </mat-form-field>

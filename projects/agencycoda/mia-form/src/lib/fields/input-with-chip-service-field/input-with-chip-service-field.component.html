@@ -1,0 +1,23 @@
+<mat-form-field *ngIf="input" class="{{ field.classes }}" [appearance]="getAppearance()">
+    <mat-label *ngIf="field.label"> {{ field.label }} </mat-label>
+
+    <mat-chip-list #chipList aria-label="Chip selection">
+      <mat-chip *ngFor="let itemSel of inputList.value" [selectable]="false" [removable]="true" (removed)="remove(itemSel)">
+        {{ displayFn(itemSel) }}
+        <button matChipRemove>
+          <mat-icon>cancel</mat-icon>
+        </button>
+      </mat-chip>
+
+      <input #chipInput type="text" [formControl]="input" [placeholder]="field.placeholder ? field.placeholder : ''" [disabled]="field.isDisabled ? field.isDisabled : false" [matAutocomplete]="auto" [matChipInputFor]="chipList" [matChipInputSeparatorKeyCodes]="separatorKeysCodes" (matChipInputTokenEnd)="add($event)" />
+
+    </mat-chip-list>
+
+    <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn.bind(this)" (optionSelected)="selected($event)">
+        <mat-option *ngFor="let item of filteredOptions | async" [value]="item">
+          {{ displayFn(item) }}
+        </mat-option>
+      </mat-autocomplete>
+
+    <mat-hint *ngIf="field.caption" [align]="'end'"> {{ field.caption }} </mat-hint>
+</mat-form-field>

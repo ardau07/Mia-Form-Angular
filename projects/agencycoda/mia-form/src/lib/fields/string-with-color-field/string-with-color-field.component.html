@@ -1,0 +1,25 @@
+<div fxLayout fxLayoutGap="1em">
+    <mat-form-field *ngIf="input" class="{{ field.classes }}" [appearance]="getAppearance()">
+        <mat-label *ngIf="field.label"> {{ field.label }} </mat-label>
+        <input matInput type="text" [formControl]="input" [placeholder]="field.placeholder ? field.placeholder : ''" [disabled]="field.isDisabled ? field.isDisabled : false" />
+        <mat-hint *ngIf="field.caption" [align]="'end'"> {{ field.caption }} </mat-hint>
+    </mat-form-field>
+
+    <button fxFlex="70px" mat-button [matMenuTriggerFor]="selectColor" class="select-color-menu-1" matTooltip="Pick your color" [ngStyle]="{'background-color': inputColor.value}">
+        <mat-icon>expand_more</mat-icon>
+    </button>
+</div>
+
+<mat-menu #selectColor="matMenu" class="mat-menu-select-color">
+    <div class="select-color-menu">
+        <div fxLayout="row wrap" fxLayoutGap="1em grid">
+            <div fxFlex *ngFor="let color of colors">
+                <button mat-button [ngStyle]="{'background-color': color}" (click)="applyColor(color)"></button>
+            </div>
+            <div fxFlex (click)="$event.stopPropagation(); newColor.click()">
+                <input type="color" [formControl]="inputCustomColor" #newColor id="favcolor" name="favcolor" style="display: none;" />
+                <button mat-button class="new-color" [ngStyle]="{'background-color': inputCustomColor.value}" matTooltip="Choose your color"><mat-icon>colorize</mat-icon></button>
+            </div>
+        </div>
+    </div>
+</mat-menu>

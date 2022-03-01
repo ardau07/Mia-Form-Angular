@@ -1,0 +1,9 @@
+.field-row {
+    mia-print-fields {
+        flex-direction: row;
+        box-sizing: border-box;
+        display: flex;
+        place-content: stretch space-between;
+        align-items: stretch;
+    }
+}

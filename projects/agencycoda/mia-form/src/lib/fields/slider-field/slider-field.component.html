@@ -1,0 +1,12 @@
+<mat-card-content>
+    <div class="mia-slider-box">
+      <label>{{ field.label }}</label>
+      <label>{{ input.value }}</label>
+    </div>
+    <mat-slider
+        class="mia-slider"
+        [step]="1"
+        [thumbLabel]="true"
+        [formControl]="input">
+    </mat-slider>
+  </mat-card-content>

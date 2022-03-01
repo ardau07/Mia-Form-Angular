@@ -1,0 +1,16 @@
+<div class="select-field">
+  <mat-form-field *ngIf="input" class="{{ field.classes }}" [appearance]="getAppearance()">
+      <mat-label *ngIf="field.label"> {{ field.label }} </mat-label>
+
+      <mat-select [formControl]="input" [placeholder]="field.placeholder ? field.placeholder : ''" [disabled]="field.isDisabled ? field.isDisabled : false">
+          <mat-option *ngIf="field.extra.is_optional" [value]="undefined"> {{ field.extra.optional_title }} </mat-option>
+          <mat-option *ngFor="let option of field.extra.options" [value]="option.id"> {{ option.title }} </mat-option>
+      </mat-select>
+
+      <mat-hint *ngIf="field.caption" [align]="'end'"> {{ field.caption }} </mat-hint>
+  </mat-form-field>
+
+  <p *ngIf="field.extra.can_add" style="text-align: right; margin: 0;">
+      <button mat-stroked-button color="primary" (click)="onClickNewItem(); $event.stopPropagation()">{{ field.extra.add_title }}</button>
+  </p>
+</div>

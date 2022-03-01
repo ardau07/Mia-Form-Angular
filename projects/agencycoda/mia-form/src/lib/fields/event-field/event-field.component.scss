@@ -1,0 +1,26 @@
+.field-row {
+    flex-direction: row;
+    box-sizing: border-box;
+    display: flex;
+    place-content: stretch space-between;
+    align-items: baseline;
+}
+
+mat-select {
+    width: 200px;
+    ::ng-deep .mat-select-arrow {
+        border-left: 15px solid transparent !important;
+        border-right: none !important;
+        border-top: 15px solid transparent !important;
+        border-image-source: none !important;
+        border-image-repeat: stretch !important;
+    }
+}
+
+.divider {
+    width: 30px;
+}
+
+mat-form-field {
+    width: 100%;
+}

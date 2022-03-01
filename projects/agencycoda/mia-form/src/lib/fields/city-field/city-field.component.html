@@ -1,0 +1,23 @@
+<mat-form-field *ngIf="input" class="{{ field.classes }}" [appearance]="getAppearance()">
+    <mat-label> Country </mat-label>
+
+    <mat-select [formControl]="country">
+        <mat-option *ngFor="let c of data" [value]="c"> {{ c.title }} </mat-option>
+    </mat-select>
+</mat-form-field>
+
+<mat-form-field *ngIf="input && countrySelected" class="{{ field.classes }}" [appearance]="getAppearance()">
+    <mat-label> State </mat-label>
+
+    <mat-select [formControl]="state">
+        <mat-option *ngFor="let s of countrySelected.states" [value]="s"> {{ s.title }} </mat-option>
+    </mat-select>
+</mat-form-field>
+
+<mat-form-field *ngIf="input && stateSelected" class="{{ field.classes }}" [appearance]="getAppearance()">
+    <mat-label> City </mat-label>
+
+    <mat-select [formControl]="input">
+        <mat-option *ngFor="let c of stateSelected.cities" [value]="c.id"> {{ c.title }} </mat-option>
+    </mat-select>
+</mat-form-field>

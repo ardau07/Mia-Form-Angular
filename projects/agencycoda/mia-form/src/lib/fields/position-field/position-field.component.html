@@ -1,0 +1,28 @@
+<div [formGroup]="inputGroup">
+
+    <div>
+        <mat-form-field [appearance]="getAppearance()">
+            <mat-label> Top: </mat-label>
+            <input matInput type="text" [formControl]="inputTop"/>
+        </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field [appearance]="getAppearance()">
+            <mat-label> Right: </mat-label>
+            <input matInput type="text" [formControl]="inputRight"/>
+        </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field [appearance]="getAppearance()">
+            <mat-label> Bottom: </mat-label>
+            <input matInput type="text" [formControl]="inputBottom"/>
+        </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field [appearance]="getAppearance()">
+            <mat-label> Left: </mat-label>
+            <input matInput type="text" [formControl]="inputLeft"/>
+        </mat-form-field>
+    </div>
+
+</div>

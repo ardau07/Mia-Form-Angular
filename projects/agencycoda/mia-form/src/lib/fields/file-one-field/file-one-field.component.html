@@ -1,0 +1,15 @@
+<mat-label *ngIf="field.label"> {{ field.label }} </mat-label>
+<div class="file-one">
+    <input type="hidden" [formControl]="input" />
+
+    <input #inputFile type="file" style="display: none;" miaFileGoogle (fileUploaded)="onUploadFile($event)" (startUpload)="isUploading = true" (endUpload)="isUploading = false">
+
+    <mat-spinner *ngIf="isUploading" [diameter]="50"></mat-spinner>
+    <button *ngIf="input.value == undefined && !isUploading" mat-stroked-button class="container-file btn-upload" (click)="inputFile.click()">
+        {{ getButtonText() }}
+    </button>
+    <div *ngIf="input.value != undefined && !isUploading" class="container-file" (click)="inputFile.click()">
+        <p>{{ input.value.name }}</p>
+    </div>
+    <button *ngIf="input.value != undefined && !isUploading" mat-icon-button matTooltip="Delete File" class="btn-delete" color="warn" (click)="input.setValue(undefined)"><mat-icon>delete</mat-icon></button>
+</div>

@@ -1,0 +1,5 @@
+<mat-tab-group>
+    <mat-tab *ngFor="let tab of field.extra.tabs" [label]="tab.title">
+        <mia-print-fields *ngIf="tab.fields" [fields]="tab.fields" [group]="group"></mia-print-fields>
+    </mat-tab>
+</mat-tab-group>

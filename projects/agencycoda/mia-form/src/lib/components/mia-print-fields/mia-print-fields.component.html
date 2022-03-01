@@ -1,0 +1,29 @@
+<ng-container *ngFor="let field of fields">
+    <mia-string-field *ngIf="field.type == 'string'" [field]="field" [group]="group"></mia-string-field>
+    <mia-string-title-field *ngIf="field.type == 'string-title'" [field]="field" [group]="group"></mia-string-title-field>
+    <mia-select-field *ngIf="field.type == 'select'" [field]="field" [group]="group"></mia-select-field>
+    <mia-autocomplete-field *ngIf="field.type == 'autocomplete'" [field]="field" [group]="group"></mia-autocomplete-field>
+    <mia-autocomplete-service-field *ngIf="field.type == 'autocomplete-service'" [field]="field" [group]="group"></mia-autocomplete-service-field>
+    <mia-list-service-field *ngIf="field.type == 'list-service'" [field]="field" [group]="group"></mia-list-service-field>
+    <mia-select-service-field *ngIf="field.type == 'select-service'" [field]="field" [group]="group"></mia-select-service-field>
+    <mia-text-field *ngIf="field.type == 'text'" [field]="field" [group]="group"></mia-text-field>
+    <mia-date-field *ngIf="field.type == 'date'" [field]="field" [group]="group"></mia-date-field>
+    <mia-photo-field *ngIf="field.type == 'photo'" [field]="field" [group]="group"></mia-photo-field>
+    <mia-photo-header-field *ngIf="field.type == 'photo-header'" [field]="field" [group]="group"></mia-photo-header-field>
+    <mia-avatar-list-service-field *ngIf="field.type == 'avatar-list-service'" [field]="field" [group]="group"></mia-avatar-list-service-field>
+    <mia-list-string-field *ngIf="field.type == 'list-string'" [field]="field" [group]="group"></mia-list-string-field>
+    <mia-chips-and-select-field *ngIf="field.type == 'chips-and-select'" [field]="field" [group]="group"></mia-chips-and-select-field>
+    <mia-chips-and-select-service-field *ngIf="field.type == 'chips-and-select-service'" [field]="field" [group]="group"></mia-chips-and-select-service-field>
+    <mia-string-with-color-field *ngIf="field.type == 'string-with-color'" [field]="field" [group]="group"></mia-string-with-color-field>
+    <mia-label-field *ngIf="field.type == 'label'" [field]="field" [group]="group"></mia-label-field>
+    <mia-city-field *ngIf="field.type == 'city'" [field]="field" [group]="group"></mia-city-field>
+    <mia-tags-field *ngIf="field.type == 'tags'" [field]="field" [group]="group"></mia-tags-field>
+    <mia-html-field *ngIf="field.type == 'html'" [field]="field" [group]="group"></mia-html-field>
+    <mia-divider-field *ngIf="field.type == 'divider'" [field]="field" [group]="group"></mia-divider-field>
+    <mia-event-field *ngIf="field.type == 'event'" [field]="field" [group]="group"></mia-event-field>
+    <mia-custom-field *ngIf="field.type == 'custom'" [field]="field" [group]="group"></mia-custom-field>
+    <mia-email-field *ngIf="field.type == 'email'" [field]="field" [group]="group"></mia-email-field>
+    <mia-password-field *ngIf="field.type == 'password'" [field]="field" [group]="group"></mia-password-field>
+    <mia-file-one-field *ngIf="field.type == 'file-one'" [field]="field" [group]="group"></mia-file-one-field>
+    <mia-input-with-chip-service-field *ngIf="field.type == 'input-with-chip-service'" [field]="field" [group]="group"></mia-input-with-chip-service-field>
+</ng-container>

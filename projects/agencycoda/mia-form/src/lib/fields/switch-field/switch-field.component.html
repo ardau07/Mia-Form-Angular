@@ -1,0 +1,4 @@
+<div class="mia-switch">
+    <mat-slide-toggle [labelPosition]="'before'" [formControl]="input">{{ field.label }}</mat-slide-toggle>
+    <mat-hint *ngIf="field.caption" [align]="'end'"> {{ field.caption }} </mat-hint>
+</div>

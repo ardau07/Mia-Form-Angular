@@ -1,0 +1,34 @@
+<div class="add-to-lists-component">
+    <h5 *ngIf="field.extra.title"><b> {{ field.extra.title }} </b></h5>
+    <mat-chip-list>
+        <mat-chip *ngFor="let itList of inputList.value; let i = index">
+
+            {{ getFieldValueByKey(itList, field.extra.field_display) }}
+            <mat-icon matChipRemove matTooltip="Remove" (click)="onClickRemove(i)">cancel</mat-icon>
+        </mat-chip>
+        <button *ngIf="hasOneOption()" mat-button color="primary" [matMenuTriggerFor]="lists">+ Select</button>
+    </mat-chip-list>
+</div>
+
+<mat-menu #lists="matMenu" class="mat-menu-list">
+    <div class="content" (click)="$event.stopPropagation()" [ngClass]="{'is-multiple-select': true}">
+        <div class="header">
+            <mat-form-field appearance="outline">
+                <input matInput [formControl]="input" type="text" placeholder="Search...">
+                <mat-icon matPrefix>search</mat-icon>
+            </mat-form-field>
+        </div>
+    
+        <mat-selection-list #selectionList [multiple]="true" (selectionChange)="onSelectItem($event)">
+            <mat-list-option *ngFor="let opt of optionsFiltered" [value]="opt">
+                {{ getFieldValueByKey(opt, field.extra.field_display) }}
+            </mat-list-option>
+        </mat-selection-list>
+        
+        <!--<app-empty-screen-component *ngIf="typeOfLists.length <= 0" [image]="emptyScreenTitle" [title]="emptyScreenTitle" [text]="'You dont have any lists'"></app-empty-screen-component>-->
+    </div>
+    
+    <div class="mat-dialog-actions" mat-dialog-actions (click)="$event.stopPropagation()">
+        <button mat-raised-button color="primary" [disabled]="selectionList.selectedOptions.selected.length <= 0" (click)="onClickAdd()">Add</button>
+    </div>
+</mat-menu>

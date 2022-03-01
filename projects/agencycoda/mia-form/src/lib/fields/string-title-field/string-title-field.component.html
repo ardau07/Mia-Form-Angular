@@ -1,0 +1,2 @@
+<input *ngIf="input" class="title-field {{ field.classes }}" type="text" [formControl]="input" [placeholder]="field.placeholder ? field.placeholder : ''" [disabled]="field.isDisabled ? field.isDisabled : false" />
+<mat-hint *ngIf="field.caption" [align]="'end'"> {{ field.caption }} </mat-hint>

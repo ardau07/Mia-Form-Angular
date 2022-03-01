@@ -1,0 +1,31 @@
+.color-selector-field{
+  margin: 1em 0;
+}
+
+mat-label{
+  font-size: 1em;
+  text-transform: uppercase;
+  color: #696969;
+  margin-bottom: 1em;
+  display: block;
+}
+
+button {
+  width: 44px;
+  height: 44px;
+}
+
+.mia-colors {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5em;
+}
+
+.mia-colors button{
+  border: 3px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.mia-colors .selected {
+  border-color:#000;
+}

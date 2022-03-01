@@ -1,0 +1,25 @@
+.form-modal{
+  margin: 0 !important;
+}
+
+.content{
+  padding: 1em 0;
+}
+
+.mat-dialog-title{
+  margin-top: 0 !important;
+  font-size: 1.2rem !important;
+  font-weight: 600 !important;
+  line-height: 1.5 !important;
+  display: flex !important;
+  align-items: center !important;
+  button { margin-left: auto; }
+}
+
+.mat-dialog-actions {
+  display: flex;
+  justify-content: flex-end;
+  button {
+      margin-left: 1em;
+  }
+}

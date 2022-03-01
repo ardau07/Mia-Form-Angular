@@ -1,0 +1,30 @@
+<button fxHide.xs mat-raised-button [matMenuTriggerFor]="menuFilter">
+    <mat-icon>today</mat-icon> &nbsp;
+    <ng-container *ngIf="filterType == 1">This day</ng-container>
+    <ng-container *ngIf="filterType == 2">This week</ng-container>
+    <ng-container *ngIf="filterType == 3">This month</ng-container>
+    <ng-container *ngIf="filterType == 4">This year</ng-container>
+    <ng-container *ngIf="filterType == 5">{{ rangeString }}</ng-container>
+    &nbsp;
+    <mat-icon>arrow_drop_down</mat-icon>
+  </button>
+<button fxHide fxShow.xs mat-icon-button class="btn-date" [matMenuTriggerFor]="menuFilter"><mat-icon>today</mat-icon></button>
+
+<mat-menu #menuFilter="matMenu" class="mat-menu-filter-date">
+    <button mat-menu-item (click)="filterByDay()">This day</button>
+    <button mat-menu-item (click)="filterByWeek()">This week</button>
+    <button mat-menu-item (click)="filterByMonth()">This month</button>
+    <button mat-menu-item (click)="filterByYear()">This year</button>
+    <mat-divider style="margin: 0 !important;"></mat-divider>
+    <div style="padding: 0 1em;" (click)="$event.stopPropagation()">
+      <p>Select date range</p>
+      <mat-form-field appearance="outline" (click)="picker.open()">
+        <mat-date-range-input [formGroup]="range" [rangePicker]="picker">
+          <input matStartDate formControlName="start" placeholder="Start date">
+          <input matEndDate formControlName="end" placeholder="End date">
+        </mat-date-range-input>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-date-range-picker #picker></mat-date-range-picker>
+      </mat-form-field>
+    </div>
+  </mat-menu>

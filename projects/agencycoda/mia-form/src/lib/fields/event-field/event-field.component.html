@@ -1,0 +1,25 @@
+<div class="field-row">
+    <mat-form-field *ngIf="input" class="{{ field.classes }}" [appearance]="getAppearance()">
+        <mat-label *ngIf="field.label"> {{ field.label }} </mat-label>
+        <input matInput [matDatepicker]="picker" [formControl]="internalStartDate" [placeholder]="field.placeholder ? field.placeholder : ''" [disabled]="field.isDisabled ? field.isDisabled : false">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-select [formControl]="internalStartHour">
+        <mat-option *ngFor="let option of hours" [value]="option.value"> {{ option.title }} </mat-option>
+    </mat-select>
+
+    <div class="divider">|</div>
+
+    <mat-select [formControl]="internalEndHour">
+        <mat-option *ngFor="let option of hours" [value]="option.value"> {{ option.title }} </mat-option>
+    </mat-select>
+
+    <mat-form-field *ngIf="input" class="{{ field.classes }}" [appearance]="getAppearance()">
+        <input matInput [matDatepicker]="picker" [formControl]="internalEndDate" [placeholder]="field.placeholder ? field.placeholder : ''" [disabled]="field.isDisabled ? field.isDisabled : false">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+</div>
+

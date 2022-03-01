@@ -1,0 +1,14 @@
+.close-save-button-component{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2em;
+  
+    button{
+      opacity: 0.5;
+      &:hover{
+        opacity: 1;
+      }
+    }
+  }
+  

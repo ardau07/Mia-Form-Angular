@@ -1,0 +1,5 @@
+<mat-form-field *ngIf="input" class="{{ field.classes }}" [appearance]="getAppearance()">
+    <mat-label *ngIf="field.label"> {{ field.label }} </mat-label>
+    <input matInput #placesRef="ngx-places" ngx-google-places-autocomplete type="text" (onAddressChange)="handleAddressChange($event)" [formControl]="input" [placeholder]="field.placeholder ? field.placeholder : ''" [disabled]="field.isDisabled ? field.isDisabled : false" autocomplete="off" />
+    <mat-hint *ngIf="field.caption" [align]="'end'"> {{ field.caption }} </mat-hint>
+</mat-form-field>

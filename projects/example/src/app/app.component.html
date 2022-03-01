@@ -1,0 +1,29 @@
+<br><br><br>
+
+<h1>Formulario example</h1>
+<div class="content">
+  <mia-form #miaForm [config]="config" [item]="item" (save)="onSubmit($event)"></mia-form>
+  <button (click)="onClickSend()">Enviar</button>
+</div>
+
+
+<div class="content">
+  <h2>Formulario en Modal</h2>
+  Test: {{ item.firstname }} &nbsp;
+  <button mat-stroked-button (click)="onClickOpenForm()">Open Form</button>&nbsp;
+  <button mat-stroked-button (click)="onClickOpenFormV2()">Open Form V2</button>&nbsp;
+  <button mat-stroked-button (click)="onClickOpenFormV3()">Open Form V3</button>&nbsp;
+  <button mat-stroked-button (click)="onClickOpenFormWizard()">Open Form Wizard</button>
+</div>
+
+
+<div class="content">
+  <h2>Elementos</h2>
+  <mia-date-filter-range-button (changeRange)="onChangeDateFilter($event)"></mia-date-filter-range-button>
+  <hr />
+  <mia-filter-box [config]="filterBox" [query]="queryFilter" (execCustom)="onFilterCustom($event)"></mia-filter-box>
+
+  <router-outlet></router-outlet>
+</div>
+
+<br><br><br>

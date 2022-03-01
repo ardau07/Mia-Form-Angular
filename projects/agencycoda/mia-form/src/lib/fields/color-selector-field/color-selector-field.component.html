@@ -1,0 +1,6 @@
+<div class="color-selector-field">
+  <mat-label *ngIf="field.label" class="label-style"> {{ field.label }} </mat-label>
+  <div class="mia-colors">
+    <button mat-icon-button *ngFor="let color of field.extra.colors" type="button" [ngClass]="{'selected': color == input.value}" [ngStyle]="{'background': color}" (click)="onClickColor(color)" matTooltip='{{ color }}'></button>
+  </div>
+</div>
